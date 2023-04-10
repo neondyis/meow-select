@@ -100,20 +100,20 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
         }
     };
 
-    const {trigger: blockTrigger} = useSWRMutation(
+    const {trigger: blockTrigger, isMutating} = useSWRMutation(
         "/api/admin/topics",
         ChangeBlock,
         {}
     );
 
-    const {trigger: guestTrigger} = useSWRMutation(
+    const {trigger: guestTrigger, isMutating: guestIsMutating} = useSWRMutation(
         "/api/admin/guests",
         ChangeBlock,
         {}
     );
 
 
-    const {trigger: roomTrigger} = useSWRMutation(
+    const {trigger: roomTrigger, isMutating: roomIsMutating} = useSWRMutation(
         "/api/admin/rooms",
         ChangeBlock,
         {}
@@ -179,7 +179,7 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
                     </Stack>
                     <div>
                         <strong>Guests:</strong>
-                        <GuestTags guests={guests} onGuestNameChange={handleGuestChange} onGuestRemove={handleRemoveGuest}/>
+                        <GuestTags guests={guests} onGuestRemove={handleRemoveGuest}/>
                     </div>
                     <div>
                         <strong>Topic Blocks:</strong>

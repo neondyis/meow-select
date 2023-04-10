@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Room {
+  id     String        @id @unique @default(cuid())
+  code   String        @unique @default(cuid())
+  size   Int
+  guests Guest[]
+  blocks Topic_Block[]
+}
+
+model Guest {
+  id             String        @id @unique @default(cuid())
+  name           String
+  password       String
+  roomId         String
+  connected_room Room?         @relation(fields: [roomId], references: [code])
+  Topic_Block    Topic_Block[]
+
+  @@index([roomId])
+}
+
+model Admin {
+  id       String @id @unique @default(cuid())
+  username String @unique
+  password String
+}
+
+model Topic_Block {
+  id      String  @id @unique @default(cuid())
+  content String
+  guestId String?
+  roomId  String
+  guest   Guest?  @relation(fields: [guestId], references: [id])
+  room    Room?   @relation(fields: [roomId], references: [code])
+
+  @@index([guestId])
+  @@index([roomId])
+}
