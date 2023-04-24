@@ -6,7 +6,6 @@ export async function POST(request: Request) {
         return prisma.topic_Block.create({
             data: {
                 content: topic,
-                isShown: false,
                 roomId: roomId
             },
             include: {
