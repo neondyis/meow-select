@@ -5,7 +5,7 @@ export default function AdminBody({children, header}: AdminLayoutProp) {
     return (
         <Box>
             <Flex align={'center'} justify={'center'} h={'100%'}>
-                <Card w={['auto','300px','500px']}>
+                <Card w={['auto','300px','500px']} backgroundColor={'#FFFFFF'}>
                     <CardHeader textAlign={'center'}>
                         {header}
                     </CardHeader>

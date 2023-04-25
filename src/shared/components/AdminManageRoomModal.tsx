@@ -159,7 +159,7 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
                 <ModalHeader>Room Details</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    <Stack spacing="4">
+                    <Stack spacing="4" backgroundColor={'#FFFFFF'}>
                         <Input type="text" value={room.code} readOnly={true}/>
                         <NumberInput min={1}  max={30} value={roomSize} onChange={setRoomSize} onBlur={handleRoomSizeChange}>
                             <NumberInputField />
