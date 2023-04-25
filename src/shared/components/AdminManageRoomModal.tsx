@@ -136,7 +136,7 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
                 id: "",
                 content: newBlockContent,
                 guestId: undefined,
-                roomId: room.id
+                roomId: room.code
             };
             newBlock = await blockTrigger({content: newBlock, method: "POST"});
             if (!isMutating) {
