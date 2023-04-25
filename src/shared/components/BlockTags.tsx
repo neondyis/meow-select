@@ -36,7 +36,7 @@ export default function BlockTags({blocks, onBlockChange, onBlockRemove, guests,
             (guest) => !assignedGuestIds.includes(guest.id)
         );
         setAvailableGuests(newAvailableGuests);
-    }, [selectedGuests, blocks, guests]);
+    }, [blocks, guests, selectedGuests]);
 
 
     const handleGuestChange = (index: number, guestId: string) => {
@@ -62,24 +62,24 @@ export default function BlockTags({blocks, onBlockChange, onBlockRemove, guests,
         // A random available guest
         const randomGuestIndex = Math.floor(Math.random() * availableGuests.length);
 
-        const randomBlock = unassignedBlocks[index - 1];
+
+        const randomBlock = unassignedBlocks[index];
         const randomGuest = availableGuests[randomGuestIndex];
 
         // Update the block with the guest information
         const updatedBlock = {
             ...randomBlock,
             guestId: randomGuest.id
-        };
+        }
 
         // Update the remote data
         try {
             await blockTrigger({content: updatedBlock, method: "PUT"});
-            const selectedGuestsCopy = [...selectedGuests];
-            selectedGuestsCopy.splice(index, 1, {id: randomGuest.id, name: randomGuest.name});
-            setSelectedGuests(selectedGuestsCopy);
+            handleGuestChange(index,randomGuest.id);
         } catch (e) {
             console.error(e);
         }
+        console.log(availableGuests)
     };
 
     if (!blocks || blocks.length === 0) {
