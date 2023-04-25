@@ -119,11 +119,12 @@ export default function BlockTags({blocks, onBlockChange, onBlockRemove, guests,
                             <Select
                                 variant={"outline"}
                                 placeholder={"None - Select a guest"}
+                                style={{backgroundColor: '#8fa3ec'}}
                                 value={selectedGuests[index]?.id}
                                 onChange={(e) => handleGuestChange(index, e.target.value)}
                             >
                                 {guests.map((guest) => (
-                                    <option key={guest.id} value={guest.id}
+                                    <option key={guest.id} value={guest.id} style={{backgroundColor: '#8fa3ec'}}
                                             disabled={(!availableGuests.find(availableGuest => guest.id === availableGuest.id) && !allowMultiSelection)}>
                                         {guest.name}
                                     </option>

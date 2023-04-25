@@ -33,7 +33,7 @@ export default function AdminManage() {
                         {roomList.map((room, index) => {
                             return (
                                 <Box key={index}>
-                                    <Tag variant='solid' colorScheme='teal' justifyContent={'center'} onClick={_ => handleRoomSelection(room)}>{room.code}</Tag>
+                                    <Tag variant='solid' colorScheme='yellow' justifyContent={'center'} onClick={_ => handleRoomSelection(room)}>{room.code}</Tag>
                                     {selectedRoom &&
                                         <AdminManageRoomModal room={selectedRoom!} isOpen={isOpen} onClose={onClose}/>
                                     }

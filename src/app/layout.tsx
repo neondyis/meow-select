@@ -5,6 +5,8 @@ import {ChakraProvider} from '@chakra-ui/react'
 import theme from '@/theme/base';
 import {SWRConfig} from 'swr';
 import {fetcher} from '@/shared/utils/admin/SWRUtils';
+import './globals.css'
+
 export default function RootLayout({
   children,
 }: {

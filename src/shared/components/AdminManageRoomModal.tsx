@@ -155,11 +155,11 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
-            <ModalContent>
-                <ModalHeader>Room Details</ModalHeader>
+            <ModalContent textColor={'whiteAlpha.900'}>
+                <ModalHeader backgroundColor={'#51629e'}>Room Details</ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>
-                    <Stack spacing="4" backgroundColor={'#FFFFFF'}>
+                <ModalBody backgroundColor={'#51629e'}>
+                    <Stack spacing="4">
                         <Input type="text" value={room.code} readOnly={true}/>
                         <NumberInput min={1}  max={30} value={roomSize} onChange={setRoomSize} onBlur={handleRoomSizeChange}>
                             <NumberInputField />
@@ -186,7 +186,7 @@ export default function AdminManageRoomModal({room, isOpen, onClose}: AdminManag
                         <BlockTags blocks={blocks} onBlockChange={handleBlockChange} onBlockRemove={handleRemoveBlock} guests={guests} blockTrigger={blockTrigger}/>
                     </div>
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter backgroundColor={'#51629e'}>
                     <Button onClick={onClose}>Close</Button>
                 </ModalFooter>
             </ModalContent>

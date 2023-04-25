@@ -1,0 +1,7 @@
+option {
+background-color: #8fa3ec !important;
+}
+
+input:-webkit-autofill {
+    background-color: #8fa3ec !important;
+}

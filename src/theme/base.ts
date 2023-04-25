@@ -70,7 +70,7 @@ const colors = {
     blue: "#addce9",
     wedgewood: "#52809d",
     astronaut: "#2e4374",
-    text: "#000"
+    text: "#000",
 }
 
 const config = {
